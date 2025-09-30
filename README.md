@@ -9,5 +9,3 @@ Deep learning pipeline for detecting illegal sand mining activities using satell
 - Free, open-source data sources only
 
 ## Project Structure
-[Add structure overview]
-EOL

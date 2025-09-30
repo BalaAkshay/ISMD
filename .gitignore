@@ -1,0 +1,12 @@
+# Data directories (completely ignore)
+data/
+models/
+outputs/
+
+# Python and development
+__pycache__/
+*.pyc
+.env
+.venv/
+.ipynb_checkpoints
+.DS_Store
