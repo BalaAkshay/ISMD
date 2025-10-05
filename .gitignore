@@ -3,6 +3,8 @@ data/
 models/
 outputs/
 
+!src/models/
+
 # Python and development
 __pycache__/
 *.pyc
