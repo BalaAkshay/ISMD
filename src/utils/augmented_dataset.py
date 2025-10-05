@@ -30,7 +30,7 @@ class AugmentedMiningDataset(Dataset):
         self.patch_files = [f for f in os.listdir(patches_dir) 
                            if f.endswith('.npy') and f in self.annotations]
         
-        print(f"✅ Loaded {len(self.patch_files)} patches for {'training' if is_training else 'validation'}")
+        print(f"Loaded {len(self.patch_files)} patches for {'training' if is_training else 'validation'}")
         
     def __len__(self):
         return len(self.patch_files)
@@ -90,7 +90,7 @@ def test_augmented_dataset():
         
         return dataset
     else:
-        print("❌ Required files not found!")
+        print("Required files not found!")
         print(f"Annotations exists: {os.path.exists(annotations_file)}")
         print(f"Patches dir exists: {os.path.exists(patches_dir)}")
         return None

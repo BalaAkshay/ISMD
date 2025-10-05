@@ -44,11 +44,11 @@ class BatchPatchExtractor:
                                 'image_name': image_name
                             })
             
-            print(f"✅ {image_name}: Extracted {len(patches)} patches")
+            print(f"{image_name}: Extracted {len(patches)} patches")
             return patches, metadata
             
         except Exception as e:
-            print(f"❌ {image_name}: Error - {e}")
+            print(f"{image_name}: Error - {e}")
             return [], []
     
     def process_all_images(self, input_dir, output_dir):
@@ -56,7 +56,7 @@ class BatchPatchExtractor:
         tiff_files = [os.path.join(input_dir, f) for f in os.listdir(input_dir) 
                      if f.endswith('.tif') or f.endswith('.tiff')]
         
-        print(f"📁 Found {len(tiff_files)} GeoTIFF files to process")
+        print(f"Found {len(tiff_files)} GeoTIFF files to process")
         
         all_patches = []
         all_metadata = []
@@ -73,7 +73,7 @@ class BatchPatchExtractor:
                 all_patches.extend(patches)
                 all_metadata.extend(metadata)
         
-        print(f"🎉 Total patches extracted: {len(all_patches)}")
+        print(f"Total patches extracted: {len(all_patches)}")
         return all_patches, all_metadata
 
 def run_batch_extraction():
@@ -82,7 +82,7 @@ def run_batch_extraction():
     output_dir = "data/processed/patches_all"
     
     if not os.path.exists(input_dir):
-        print(f"❌ Input directory not found: {input_dir}")
+        print(f"Input directory not found: {input_dir}")
         return
     
     extractor = BatchPatchExtractor(patch_size=256, stride=256, max_workers=4)
@@ -94,7 +94,7 @@ def run_batch_extraction():
     with open(metadata_file, 'w') as f:
         json.dump(metadata, f, indent=2)
     
-    print(f"💾 Metadata saved to: {metadata_file}")
+    print(f"Metadata saved to: {metadata_file}")
     return patches
 
 if __name__ == "__main__":

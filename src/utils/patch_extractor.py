@@ -52,10 +52,10 @@ def test_patch_extraction():
     
     if os.path.exists(sample_file):
         patches, metadata = extractor.extract_patches_from_tiff(sample_file, output_dir)
-        print(f"✅ Extracted {len(patches)} patches from {sample_file}")
+        print(f"Extracted {len(patches)} patches from {sample_file}")
         return patches
     else:
-        print("❌ Sample file not found - run data pipeline first")
+        print("Sample file not found - run data pipeline first")
         return []
 
 if __name__ == "__main__":

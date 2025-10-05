@@ -28,5 +28,5 @@ def get_validation_augmentations():
 # Test the augmentation
 if __name__ == "__main__":
     aug = get_training_augmentations()
-    print("✅ Augmentation pipeline ready:")
+    print("Augmentation pipeline ready:")
     print(aug)
