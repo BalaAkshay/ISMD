@@ -6,9 +6,9 @@ import numpy as np
 # --- Authenticate and Initialize GEE ---
 try:
     ee.Initialize(project='coe-aiml-b8')
-    print("✅ Earth Engine Initialized Successfully!")
+    print("Earth Engine Initialized Successfully!")
 except Exception as e:
-    print(f"❌ Earth Engine init failed: {e}")
+    print(f"Earth Engine init failed: {e}")
     exit(1)
 
 # --- USER-DEFINED PARAMETERS ---
@@ -73,16 +73,16 @@ def get_monthly_composites(start_date, end_date, aoi):
     return ee.ImageCollection.fromImages(monthly_composites)
 
 # --- EXECUTION ---
-print("🚀 Starting satellite data collection...")
+print("Starting satellite data collection...")
 print(f"Area: Yamuna River, Noida ({AOI.getInfo()['coordinates']})")
 print(f"Date Range: {START_DATE} to {END_DATE}")
 
 monthly_collection = get_monthly_composites(START_DATE, END_DATE, AOI)
 composite_count = monthly_collection.size().getInfo()
-print(f"📊 Generated {composite_count} monthly composites")
+print(f"Generated {composite_count} monthly composites")
 
 # --- EXPORT TO GOOGLE DRIVE ---
-print("📤 Starting export to Google Drive...")
+print("Starting export to Google Drive...")
 image_list = monthly_collection.toList(monthly_collection.size())
 
 for i in range(composite_count):
@@ -105,6 +105,6 @@ for i in range(composite_count):
     task.start()
     time.sleep(2)  # Avoid overwhelming GEE servers
 
-print(f"✅ All {composite_count} export tasks submitted!")
-print("📁 Check your Google Drive folder: 'ISMD_SATELLITE_DATA'")
-print("⏳ Exports will take some time. Check GEE Task Manager for progress.")
+print(f"All {composite_count} export tasks submitted!")
+print("Check your Google Drive folder: 'ISMD_SATELLITE_DATA'")
+print("Exports will take some time. Check GEE Task Manager for progress.")
