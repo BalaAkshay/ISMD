@@ -1,0 +1,671 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Yamuna River Mining Detection</title>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+            <style>
+                #map { height: 600px; }
+                .mining-marker { background-color: red; border-radius: 50%; }
+                .non-mining-marker { background-color: green; border-radius: 50%; }
+            </style>
+        </head>
+        <body>
+            <h2>Sand Mining Detection - Yamuna River Sector</h2>
+            <div id="map"></div>
+            <script>
+                var map = L.map('map').setView([28.98, 77.18], 12);
+                
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+                
+                // Add detection points
+        
+                L.circleMarker([28.980209230482867, 77.18700179954588], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 13.800414779082216
+                }).addTo(map)
+                .bindPopup('Location 1<br>✅ No Mining<br>Confidence: 88.0%');
+            
+                L.circleMarker([28.991240070720572, 77.17049705173885], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.361732643914223
+                }).addTo(map)
+                .bindPopup('Location 2<br>🚨 MINING<br>Confidence: 43.6%');
+            
+                L.circleMarker([28.971579468358698, 77.1726579567445], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.62985308707878
+                }).addTo(map)
+                .bindPopup('Location 3<br>🚨 MINING<br>Confidence: 56.3%');
+            
+                L.circleMarker([28.99337741095114, 77.17605073727402], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.32486737581886
+                }).addTo(map)
+                .bindPopup('Location 4<br>🚨 MINING<br>Confidence: 53.2%');
+            
+                L.circleMarker([29.04392132888171, 77.1708924732246], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.704816874785616
+                }).addTo(map)
+                .bindPopup('Location 5<br>🚨 MINING<br>Confidence: 37.0%');
+            
+                L.circleMarker([28.987888945360673, 77.1806264992502], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.712635681768266
+                }).addTo(map)
+                .bindPopup('Location 6<br>🚨 MINING<br>Confidence: 47.1%');
+            
+                L.circleMarker([29.023033000354033, 77.17256738580056], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.456475328819426
+                }).addTo(map)
+                .bindPopup('Location 7<br>🚨 MINING<br>Confidence: 54.6%');
+            
+                L.circleMarker([29.04584103311714, 77.1745033211681], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.754346387018934
+                }).addTo(map)
+                .bindPopup('Location 8<br>🚨 MINING<br>Confidence: 57.5%');
+            
+                L.circleMarker([28.977364849422983, 77.16987077617286], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.1436958159947
+                }).addTo(map)
+                .bindPopup('Location 9<br>🚨 MINING<br>Confidence: 41.4%');
+            
+                L.circleMarker([29.050545037767357, 77.18518334563983], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.199593898296051
+                }).addTo(map)
+                .bindPopup('Location 10<br>🚨 MINING<br>Confidence: 32.0%');
+            
+                L.circleMarker([28.995017065191455, 77.18217933640523], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.699111776139164
+                }).addTo(map)
+                .bindPopup('Location 11<br>🚨 MINING<br>Confidence: 37.0%');
+            
+                L.circleMarker([28.95924551514214, 77.17778478116641], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.961599054897187
+                }).addTo(map)
+                .bindPopup('Location 12<br>🚨 MINING<br>Confidence: 39.6%');
+            
+                L.circleMarker([29.07283557644542, 77.17291338889729], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.558014430810264
+                }).addTo(map)
+                .bindPopup('Location 13<br>🚨 MINING<br>Confidence: 35.6%');
+            
+                L.circleMarker([29.053874424179632, 77.177550860233], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.578948080113458
+                }).addTo(map)
+                .bindPopup('Location 14<br>🚨 MINING<br>Confidence: 45.8%');
+            
+                L.circleMarker([28.972005621294574, 77.17425817063435], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.438123092052937
+                }).addTo(map)
+                .bindPopup('Location 15<br>🚨 MINING<br>Confidence: 54.4%');
+            
+                L.circleMarker([29.05036206373525, 77.16961902511949], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.780247049212903
+                }).addTo(map)
+                .bindPopup('Location 16<br>🚨 MINING<br>Confidence: 47.8%');
+            
+                L.circleMarker([29.040767206699535, 77.17802959040714], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.371213680378906
+                }).addTo(map)
+                .bindPopup('Location 17<br>🚨 MINING<br>Confidence: 43.7%');
+            
+                L.circleMarker([29.012592287180677, 77.16078125635465], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 13.509376252540505
+                }).addTo(map)
+                .bindPopup('Location 18<br>✅ No Mining<br>Confidence: 85.1%');
+            
+                L.circleMarker([29.041593376393788, 77.17189284525335], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.354651794388612
+                }).addTo(map)
+                .bindPopup('Location 19<br>🚨 MINING<br>Confidence: 43.5%');
+            
+                L.circleMarker([29.065370438787973, 77.17459947160171], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 12.624818566731042
+                }).addTo(map)
+                .bindPopup('Location 20<br>🚨 MINING<br>Confidence: 76.2%');
+            
+                L.circleMarker([29.013141032402945, 77.18034460602011], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.31105044048093
+                }).addTo(map)
+                .bindPopup('Location 21<br>🚨 MINING<br>Confidence: 33.1%');
+            
+                L.circleMarker([28.99845191303734, 77.17595293921225], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 11.143835033751362
+                }).addTo(map)
+                .bindPopup('Location 22<br>🚨 MINING<br>Confidence: 61.4%');
+            
+                L.circleMarker([29.020335008105732, 77.17162755495319], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.036227730294893
+                }).addTo(map)
+                .bindPopup('Location 23<br>🚨 MINING<br>Confidence: 50.4%');
+            
+                L.circleMarker([29.0735759200365, 77.18859992949268], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 15.0
+                }).addTo(map)
+                .bindPopup('Location 24<br>✅ No Mining<br>Confidence: 100.0%');
+            
+                L.circleMarker([29.001514892275168, 77.17951723338464], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.242000809868918
+                }).addTo(map)
+                .bindPopup('Location 25<br>🚨 MINING<br>Confidence: 32.4%');
+            
+                L.circleMarker([29.049649274749612, 77.19049990251713], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 14.462210799750686
+                }).addTo(map)
+                .bindPopup('Location 26<br>✅ No Mining<br>Confidence: 94.6%');
+            
+                L.circleMarker([29.061411061901072, 77.17192155900855], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 11.17791936916047
+                }).addTo(map)
+                .bindPopup('Location 27<br>🚨 MINING<br>Confidence: 61.8%');
+            
+                L.circleMarker([29.079433068595208, 77.18373120145121], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.904406464035528
+                }).addTo(map)
+                .bindPopup('Location 28<br>🚨 MINING<br>Confidence: 39.0%');
+            
+                L.circleMarker([28.990605024557595, 77.17907129190002], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.858289154676225
+                }).addTo(map)
+                .bindPopup('Location 29<br>🚨 MINING<br>Confidence: 48.6%');
+            
+                L.circleMarker([28.971486423726617, 77.1735248764791], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.464238658827973
+                }).addTo(map)
+                .bindPopup('Location 30<br>🚨 MINING<br>Confidence: 54.6%');
+            
+                L.circleMarker([28.980371193299355, 77.17560793108538], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.41858868329118
+                }).addTo(map)
+                .bindPopup('Location 31<br>🚨 MINING<br>Confidence: 44.2%');
+            
+                L.circleMarker([29.03285320477677, 77.17376953026235], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 11.881485724159095
+                }).addTo(map)
+                .bindPopup('Location 32<br>🚨 MINING<br>Confidence: 68.8%');
+            
+                L.circleMarker([29.04280691088227, 77.17580029376175], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 11.813090941306399
+                }).addTo(map)
+                .bindPopup('Location 33<br>🚨 MINING<br>Confidence: 68.1%');
+            
+                L.circleMarker([29.00479625082825, 77.17084343200376], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.64180230383612
+                }).addTo(map)
+                .bindPopup('Location 34<br>🚨 MINING<br>Confidence: 46.4%');
+            
+                L.circleMarker([28.99130220088484, 77.18340579572246], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 12.582312845622774
+                }).addTo(map)
+                .bindPopup('Location 35<br>✅ No Mining<br>Confidence: 75.8%');
+            
+                L.circleMarker([29.007319057728008, 77.1786259034114], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 11.053866722422956
+                }).addTo(map)
+                .bindPopup('Location 36<br>🚨 MINING<br>Confidence: 60.5%');
+            
+                L.circleMarker([29.059421915836833, 77.17605220596589], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.815977873569452
+                }).addTo(map)
+                .bindPopup('Location 37<br>🚨 MINING<br>Confidence: 48.2%');
+            
+                L.circleMarker([29.051175655900707, 77.17556531902191], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.59449658619873
+                }).addTo(map)
+                .bindPopup('Location 38<br>🚨 MINING<br>Confidence: 55.9%');
+            
+                L.circleMarker([28.987456544626063, 77.17143706729006], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.66416732180468
+                }).addTo(map)
+                .bindPopup('Location 39<br>🚨 MINING<br>Confidence: 46.6%');
+            
+                L.circleMarker([28.974649850427667, 77.17695825436982], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.831432327204691
+                }).addTo(map)
+                .bindPopup('Location 40<br>🚨 MINING<br>Confidence: 48.3%');
+            
+                L.circleMarker([29.071260237567692, 77.17991413160819], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.278722754086779
+                }).addTo(map)
+                .bindPopup('Location 41<br>🚨 MINING<br>Confidence: 52.8%');
+            
+                L.circleMarker([29.058726562825427, 77.16487025926257], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.22873016342033
+                }).addTo(map)
+                .bindPopup('Location 42<br>🚨 MINING<br>Confidence: 32.3%');
+            
+                L.circleMarker([29.033592117892173, 77.17846743719514], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.08978622031278
+                }).addTo(map)
+                .bindPopup('Location 43<br>🚨 MINING<br>Confidence: 50.9%');
+            
+                L.circleMarker([28.96006902522205, 77.16926738725452], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.898292095437725
+                }).addTo(map)
+                .bindPopup('Location 44<br>🚨 MINING<br>Confidence: 39.0%');
+            
+                L.circleMarker([28.963612491114297, 77.17372642976909], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.936808771583433
+                }).addTo(map)
+                .bindPopup('Location 45<br>🚨 MINING<br>Confidence: 59.4%');
+            
+                L.circleMarker([28.972145544528683, 77.17256915890239], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 12.113191406134783
+                }).addTo(map)
+                .bindPopup('Location 46<br>✅ No Mining<br>Confidence: 71.1%');
+            
+                L.circleMarker([29.01662629768557, 77.17631215679931], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.851824494877365
+                }).addTo(map)
+                .bindPopup('Location 47<br>🚨 MINING<br>Confidence: 48.5%');
+            
+                L.circleMarker([28.96885503472311, 77.17215026930303], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 12.354808424825018
+                }).addTo(map)
+                .bindPopup('Location 48<br>🚨 MINING<br>Confidence: 73.5%');
+            
+                L.circleMarker([29.000345279294304, 77.16592802637803], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.280557713996789
+                }).addTo(map)
+                .bindPopup('Location 49<br>🚨 MINING<br>Confidence: 52.8%');
+            
+                L.circleMarker([29.00368180832703, 77.18370906107936], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.570321153750855
+                }).addTo(map)
+                .bindPopup('Location 50<br>🚨 MINING<br>Confidence: 45.7%');
+            
+                L.circleMarker([29.0378119690597, 77.1790525448267], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.913631190585747
+                }).addTo(map)
+                .bindPopup('Location 51<br>🚨 MINING<br>Confidence: 39.1%');
+            
+                L.circleMarker([29.004246112642754, 77.17438492328299], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.874722223716903
+                }).addTo(map)
+                .bindPopup('Location 52<br>🚨 MINING<br>Confidence: 58.7%');
+            
+                L.circleMarker([29.072380820394898, 77.16875571220746], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 12.352898664882641
+                }).addTo(map)
+                .bindPopup('Location 53<br>✅ No Mining<br>Confidence: 73.5%');
+            
+                L.circleMarker([28.997463526725898, 77.17604813422982], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 11.401669334785856
+                }).addTo(map)
+                .bindPopup('Location 54<br>🚨 MINING<br>Confidence: 64.0%');
+            
+                L.circleMarker([29.03107151734082, 77.165546421233], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 14.543219389121635
+                }).addTo(map)
+                .bindPopup('Location 55<br>✅ No Mining<br>Confidence: 95.4%');
+            
+                L.circleMarker([29.01361195762827, 77.16371869424525], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 14.302865603767223
+                }).addTo(map)
+                .bindPopup('Location 56<br>✅ No Mining<br>Confidence: 93.0%');
+            
+                L.circleMarker([29.073280577636133, 77.17712667062558], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.687960186720067
+                }).addTo(map)
+                .bindPopup('Location 57<br>🚨 MINING<br>Confidence: 46.9%');
+            
+                L.circleMarker([29.07757247762336, 77.17235492284841], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.46340336680036
+                }).addTo(map)
+                .bindPopup('Location 58<br>🚨 MINING<br>Confidence: 54.6%');
+            
+                L.circleMarker([29.032067211362804, 77.16493638607054], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.162156989826679
+                }).addTo(map)
+                .bindPopup('Location 59<br>🚨 MINING<br>Confidence: 41.6%');
+            
+                L.circleMarker([29.08012917846923, 77.16985593990488], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.855199607222959
+                }).addTo(map)
+                .bindPopup('Location 60<br>🚨 MINING<br>Confidence: 38.6%');
+            
+                L.circleMarker([29.06471565254753, 77.16367155976747], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 12.079873717788619
+                }).addTo(map)
+                .bindPopup('Location 61<br>✅ No Mining<br>Confidence: 70.8%');
+            
+                L.circleMarker([29.0335353023269, 77.17442190019925], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.137780880190665
+                }).addTo(map)
+                .bindPopup('Location 62<br>🚨 MINING<br>Confidence: 51.4%');
+            
+                L.circleMarker([28.98496359517916, 77.17519044089575], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.837869344388483
+                }).addTo(map)
+                .bindPopup('Location 63<br>🚨 MINING<br>Confidence: 58.4%');
+            
+                L.circleMarker([29.00268171513524, 77.18040567732213], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 12.049156584418164
+                }).addTo(map)
+                .bindPopup('Location 64<br>✅ No Mining<br>Confidence: 70.5%');
+            
+                L.circleMarker([29.02359873460517, 77.17972979584552], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.030855750965895
+                }).addTo(map)
+                .bindPopup('Location 65<br>🚨 MINING<br>Confidence: 40.3%');
+            
+                L.circleMarker([28.992967942247716, 77.1707346158137], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.94695083734658
+                }).addTo(map)
+                .bindPopup('Location 66<br>🚨 MINING<br>Confidence: 49.5%');
+            
+                L.circleMarker([29.042700822501352, 77.1588783947626], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 15.0
+                }).addTo(map)
+                .bindPopup('Location 67<br>✅ No Mining<br>Confidence: 100.0%');
+            
+                L.circleMarker([29.057633820903586, 77.18350452637165], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.259141766591911
+                }).addTo(map)
+                .bindPopup('Location 68<br>🚨 MINING<br>Confidence: 42.6%');
+            
+                L.circleMarker([29.022035705081937, 77.17611318411004], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 10.247644324905806
+                }).addTo(map)
+                .bindPopup('Location 69<br>🚨 MINING<br>Confidence: 52.5%');
+            
+                L.circleMarker([28.9652478630535, 77.16720247100773], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 12.087793568632048
+                }).addTo(map)
+                .bindPopup('Location 70<br>✅ No Mining<br>Confidence: 70.9%');
+            
+                L.circleMarker([28.995717315500443, 77.18518711120527], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.784146537635802
+                }).addTo(map)
+                .bindPopup('Location 71<br>🚨 MINING<br>Confidence: 37.8%');
+            
+                L.circleMarker([28.996405703311876, 77.17190791789716], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 12.040077452837147
+                }).addTo(map)
+                .bindPopup('Location 72<br>🚨 MINING<br>Confidence: 70.4%');
+            
+                L.circleMarker([29.001143804306036, 77.18089567488965], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.25034428381214
+                }).addTo(map)
+                .bindPopup('Location 73<br>🚨 MINING<br>Confidence: 42.5%');
+            
+                L.circleMarker([29.047461470524375, 77.18091165342345], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 9.316891633377981
+                }).addTo(map)
+                .bindPopup('Location 74<br>🚨 MINING<br>Confidence: 43.2%');
+            
+                L.circleMarker([29.004644446590802, 77.18137032244834], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 8.557287969981665
+                }).addTo(map)
+                .bindPopup('Location 75<br>🚨 MINING<br>Confidence: 35.6%');
+            
+                L.circleMarker([29.07073251938615, 77.16166179531507], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 14.731157453308791
+                }).addTo(map)
+                .bindPopup('Location 76<br>✅ No Mining<br>Confidence: 97.3%');
+            
+                L.circleMarker([28.974515991921436, 77.17938163957457], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 11.306709780194666
+                }).addTo(map)
+                .bindPopup('Location 77<br>🚨 MINING<br>Confidence: 63.1%');
+            
+                L.circleMarker([29.026848954554218, 77.16113336296596], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 12.4122800625029
+                }).addTo(map)
+                .bindPopup('Location 78<br>✅ No Mining<br>Confidence: 74.1%');
+            
+                L.circleMarker([29.002128531467932, 77.18637887492918], {
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0.7,
+                    radius: 12.488314245701467
+                }).addTo(map)
+                .bindPopup('Location 79<br>✅ No Mining<br>Confidence: 74.9%');
+            
+                L.circleMarker([29.026317435170085, 77.17385353660366], {
+                    color: 'red',
+                    fillColor: 'red',
+                    fillOpacity: 0.7,
+                    radius: 11.30898503165654
+                }).addTo(map)
+                .bindPopup('Location 80<br>🚨 MINING<br>Confidence: 63.1%');
+            
+            </script>
+        </body>
+        </html>
+        

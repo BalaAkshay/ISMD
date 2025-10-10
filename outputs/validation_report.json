@@ -1,0 +1,29 @@
+{
+  "generated_at": "2025-10-09T02:07:22.304322",
+  "analysis_period": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "detection_summary": {
+    "total_areas_analyzed": 50,
+    "mining_sites_detected": 27,
+    "high_confidence_alerts": 2,
+    "detection_rate": 0.54
+  },
+  "performance_metrics": {
+    "estimated_precision": 0.85,
+    "estimated_recall": 0.75,
+    "estimated_f1_score": 0.7968749999999999,
+    "confidence_threshold": 0.3
+  },
+  "time_series_insights": {
+    "peak_activity": 0.6879731360974971,
+    "average_alerts": 7.333333333333333,
+    "trend": "stable"
+  },
+  "recommendations": [
+    "High-confidence mining alerts should be verified with field inspection",
+    "Monitor detected sites monthly for activity changes",
+    "Consider lower threshold for sensitive areas"
+  ]
+}

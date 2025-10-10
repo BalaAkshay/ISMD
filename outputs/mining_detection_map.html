@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_619a0348aa7a65903b5af1bc71ad33c3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <h3 align="center" style="font-size:20px"><b>Sand Mining Detection Results</b></h3>
+        <p align="center">Detected 27 potential mining sites</p>
+        
+    
+            <div class="folium-map" id="map_619a0348aa7a65903b5af1bc71ad33c3" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_619a0348aa7a65903b5af1bc71ad33c3 = L.map(
+                "map_619a0348aa7a65903b5af1bc71ad33c3",
+                {
+                    center: [28.55, 77.35],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_52169f3bfe2f293ae3c02d698c812d15 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_52169f3bfe2f293ae3c02d698c812d15.addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+            var tile_layer_432f8d44374c8bb1bb67b0100a9bbd03 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google Satellite",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_432f8d44374c8bb1bb67b0100a9bbd03.addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+            var circle_marker_5fe5dd29315ed742d6ec24632a117518 = L.circleMarker(
+                [28.50290365560504, 77.36871364056742],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.3895976470006022, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_8253dc816e9937a92a7ace42e78f7394 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b152d97113033bf6cf0349d44b976a04 = $(`<div id="html_b152d97113033bf6cf0349d44b976a04" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 38.96%<br>             Probability: 0.390<br>             Coordinates: 28.5029, 77.3687             </div>`)[0];
+                popup_8253dc816e9937a92a7ace42e78f7394.setContent(html_b152d97113033bf6cf0349d44b976a04);
+            
+        
+
+        circle_marker_5fe5dd29315ed742d6ec24632a117518.bindPopup(popup_8253dc816e9937a92a7ace42e78f7394)
+        ;
+
+        
+    
+    
+            var circle_marker_2f73512f93ecce9ae2f7fcf697575f60 = L.circleMarker(
+                [28.541089915354497, 77.36133090854068],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.3520513469900975, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_eb465129f1733da658ed571facd98c66 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10d0a03f3e6387598cadfbc08d8524e3 = $(`<div id="html_10d0a03f3e6387598cadfbc08d8524e3" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 35.21%<br>             Probability: 0.352<br>             Coordinates: 28.5411, 77.3613             </div>`)[0];
+                popup_eb465129f1733da658ed571facd98c66.setContent(html_10d0a03f3e6387598cadfbc08d8524e3);
+            
+        
+
+        circle_marker_2f73512f93ecce9ae2f7fcf697575f60.bindPopup(popup_eb465129f1733da658ed571facd98c66)
+        ;
+
+        
+    
+    
+            var circle_marker_19f472c4f7fa997be140607fe17f27a4 = L.circleMarker(
+                [28.5151550384323, 77.35422604045777],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.44617962403700284, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_38422db7448bc7f800e4789b8003aa49 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67dfb2442941d2f93f535ff930eb9acf = $(`<div id="html_67dfb2442941d2f93f535ff930eb9acf" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 44.62%<br>             Probability: 0.446<br>             Coordinates: 28.5152, 77.3542             </div>`)[0];
+                popup_38422db7448bc7f800e4789b8003aa49.setContent(html_67dfb2442941d2f93f535ff930eb9acf);
+            
+        
+
+        circle_marker_19f472c4f7fa997be140607fe17f27a4.bindPopup(popup_38422db7448bc7f800e4789b8003aa49)
+        ;
+
+        
+    
+    
+            var circle_marker_ad439d9be167ff64d1d44f99ca0becee = L.circleMarker(
+                [28.542539114869314, 77.32637238406282],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.79070127256456, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_5fc6c877a0c1f300b970e8b1938217e0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1bf6c1d5bab8525a8ce6b5b3704f208 = $(`<div id="html_a1bf6c1d5bab8525a8ce6b5b3704f208" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 79.07%<br>             Probability: 0.209<br>             Coordinates: 28.5425, 77.3264             </div>`)[0];
+                popup_5fc6c877a0c1f300b970e8b1938217e0.setContent(html_a1bf6c1d5bab8525a8ce6b5b3704f208);
+            
+        
+
+        circle_marker_ad439d9be167ff64d1d44f99ca0becee.bindPopup(popup_5fc6c877a0c1f300b970e8b1938217e0)
+        ;
+
+        
+    
+    
+            var circle_marker_8d83716e6d45d336e177954f1e778389 = L.circleMarker(
+                [28.557439922768364, 77.32478925674828],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7977772787749148, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_96bc01a55b4ce1d21e4bf17d630516ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1d0a57f8556c7b21d3eea63e664ec380 = $(`<div id="html_1d0a57f8556c7b21d3eea63e664ec380" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 79.78%<br>             Probability: 0.202<br>             Coordinates: 28.5574, 77.3248             </div>`)[0];
+                popup_96bc01a55b4ce1d21e4bf17d630516ea.setContent(html_1d0a57f8556c7b21d3eea63e664ec380);
+            
+        
+
+        circle_marker_8d83716e6d45d336e177954f1e778389.bindPopup(popup_96bc01a55b4ce1d21e4bf17d630516ea)
+        ;
+
+        
+    
+    
+            var circle_marker_8899889438ac5a88ec876c213657467b = L.circleMarker(
+                [28.56577448507237, 77.39344548947457],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.47716199158314787, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_ca82b3ef1c4920798411ce167fba52bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1b96fe3ee1bf43704313118226b68bd = $(`<div id="html_e1b96fe3ee1bf43704313118226b68bd" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 47.72%<br>             Probability: 0.477<br>             Coordinates: 28.5658, 77.3934             </div>`)[0];
+                popup_ca82b3ef1c4920798411ce167fba52bc.setContent(html_e1b96fe3ee1bf43704313118226b68bd);
+            
+        
+
+        circle_marker_8899889438ac5a88ec876c213657467b.bindPopup(popup_ca82b3ef1c4920798411ce167fba52bc)
+        ;
+
+        
+    
+    
+            var circle_marker_015441563cdbc6080a292434196c4422 = L.circleMarker(
+                [28.518420157845224, 77.36792293471703],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7284514386573567, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_0bc8a4a608203cab8470b4a76c479191 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_84932d8cdaf486673e25d6d5926cff95 = $(`<div id="html_84932d8cdaf486673e25d6d5926cff95" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 72.85%<br>             Probability: 0.272<br>             Coordinates: 28.5184, 77.3679             </div>`)[0];
+                popup_0bc8a4a608203cab8470b4a76c479191.setContent(html_84932d8cdaf486673e25d6d5926cff95);
+            
+        
+
+        circle_marker_015441563cdbc6080a292434196c4422.bindPopup(popup_0bc8a4a608203cab8470b4a76c479191)
+        ;
+
+        
+    
+    
+            var circle_marker_05d21b7c951d83c0160b55f750bf7e9b = L.circleMarker(
+                [28.594476611992786, 77.34856498906383],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.4066657694058027, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_1f2a424040186b1fc6162a6519116382 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_50dc3853c4964e805fa24a95a805602d = $(`<div id="html_50dc3853c4964e805fa24a95a805602d" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 40.67%<br>             Probability: 0.407<br>             Coordinates: 28.5945, 77.3486             </div>`)[0];
+                popup_1f2a424040186b1fc6162a6519116382.setContent(html_50dc3853c4964e805fa24a95a805602d);
+            
+        
+
+        circle_marker_05d21b7c951d83c0160b55f750bf7e9b.bindPopup(popup_1f2a424040186b1fc6162a6519116382)
+        ;
+
+        
+    
+    
+            var circle_marker_586bb16258a21af816bc80eee41afdda = L.circleMarker(
+                [28.579323105971614, 77.33252529696627],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6033330218652662, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_031d40ca52598862ead06d06901cf71f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5e824107a165976793d1c735bca4020 = $(`<div id="html_b5e824107a165976793d1c735bca4020" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 60.33%<br>             Probability: 0.603<br>             Coordinates: 28.5793, 77.3325             </div>`)[0];
+                popup_031d40ca52598862ead06d06901cf71f.setContent(html_b5e824107a165976793d1c735bca4020);
+            
+        
+
+        circle_marker_586bb16258a21af816bc80eee41afdda.bindPopup(popup_031d40ca52598862ead06d06901cf71f)
+        ;
+
+        
+    
+    
+            var circle_marker_bda1bd09fc83dd02983403f52bd20d57 = L.circleMarker(
+                [28.54474410060335, 77.33531425153993],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.4274767395789408, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_5f0b6a4f2b55535fb059b144a274c7fb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d3047a6754b9c9030e3ab6eccff4f13 = $(`<div id="html_3d3047a6754b9c9030e3ab6eccff4f13" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 42.75%<br>             Probability: 0.427<br>             Coordinates: 28.5447, 77.3353             </div>`)[0];
+                popup_5f0b6a4f2b55535fb059b144a274c7fb.setContent(html_3d3047a6754b9c9030e3ab6eccff4f13);
+            
+        
+
+        circle_marker_bda1bd09fc83dd02983403f52bd20d57.bindPopup(popup_5f0b6a4f2b55535fb059b144a274c7fb)
+        ;
+
+        
+    
+    
+            var circle_marker_3e9757335dd2e85570ac150c54643967 = L.circleMarker(
+                [28.590172229601, 77.31769885998571],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8462823701463907, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_5650529889801ca7f8fb343254092c69 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a345c188f41c5c1bb192aea49f0c5ac1 = $(`<div id="html_a345c188f41c5c1bb192aea49f0c5ac1" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 84.63%<br>             Probability: 0.154<br>             Coordinates: 28.5902, 77.3177             </div>`)[0];
+                popup_5650529889801ca7f8fb343254092c69.setContent(html_a345c188f41c5c1bb192aea49f0c5ac1);
+            
+        
+
+        circle_marker_3e9757335dd2e85570ac150c54643967.bindPopup(popup_5650529889801ca7f8fb343254092c69)
+        ;
+
+        
+    
+    
+            var circle_marker_5f90d8be1ea7d20ab52951eef0ab9542 = L.circleMarker(
+                [28.520320903569008, 77.36733632480683],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.3293302879255595, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_667a248200d15bb6848c5ace197db196 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9a56837b426005d60d84da5dfb5640d5 = $(`<div id="html_9a56837b426005d60d84da5dfb5640d5" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 32.93%<br>             Probability: 0.329<br>             Coordinates: 28.5203, 77.3673             </div>`)[0];
+                popup_667a248200d15bb6848c5ace197db196.setContent(html_9a56837b426005d60d84da5dfb5640d5);
+            
+        
+
+        circle_marker_5f90d8be1ea7d20ab52951eef0ab9542.bindPopup(popup_667a248200d15bb6848c5ace197db196)
+        ;
+
+        
+    
+    
+            var circle_marker_fdc65650708726c8f5366480c1c80884 = L.circleMarker(
+                [28.507466926732523, 77.39620087890287],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.9351011087349099, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_04dc0f64601ed6534a2254d21edaacab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f591a4998ab727a61e54fbc442f6d66 = $(`<div id="html_5f591a4998ab727a61e54fbc442f6d66" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 93.51%<br>             Probability: 0.065<br>             Coordinates: 28.5075, 77.3962             </div>`)[0];
+                popup_04dc0f64601ed6534a2254d21edaacab.setContent(html_5f591a4998ab727a61e54fbc442f6d66);
+            
+        
+
+        circle_marker_fdc65650708726c8f5366480c1c80884.bindPopup(popup_04dc0f64601ed6534a2254d21edaacab)
+        ;
+
+        
+    
+    
+            var circle_marker_6b326f5077760524615130ba758d4123 = L.circleMarker(
+                [28.539447366696724, 77.37635409452302],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.803320790964408, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_dd90ff9fda695663c5f93040c8d6528b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_01aec68a3de5d2b4c699b8c475bcd8aa = $(`<div id="html_01aec68a3de5d2b4c699b8c475bcd8aa" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 80.33%<br>             Probability: 0.197<br>             Coordinates: 28.5394, 77.3764             </div>`)[0];
+                popup_dd90ff9fda695663c5f93040c8d6528b.setContent(html_01aec68a3de5d2b4c699b8c475bcd8aa);
+            
+        
+
+        circle_marker_6b326f5077760524615130ba758d4123.bindPopup(popup_dd90ff9fda695663c5f93040c8d6528b)
+        ;
+
+        
+    
+    
+            var circle_marker_f643e94ba9f1419b6bb768840b54ab54 = L.circleMarker(
+                [28.537974012127815, 77.36035684235156],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.4380170606861155, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_2abc963a96f57286dec3e6a340004499 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a16807deb27b1ba9f793f2b11e2dec0e = $(`<div id="html_a16807deb27b1ba9f793f2b11e2dec0e" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 43.80%<br>             Probability: 0.438<br>             Coordinates: 28.5380, 77.3604             </div>`)[0];
+                popup_2abc963a96f57286dec3e6a340004499.setContent(html_a16807deb27b1ba9f793f2b11e2dec0e);
+            
+        
+
+        circle_marker_f643e94ba9f1419b6bb768840b54ab54.bindPopup(popup_2abc963a96f57286dec3e6a340004499)
+        ;
+
+        
+    
+    
+            var circle_marker_7f6279a4be23a094d8390e104ff7c690 = L.circleMarker(
+                [28.573450145225465, 77.3272257525065],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.4945551466069803, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_fc0acd58f5224b912fdfcafe59b9216a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10fd1a1f86633fb0ed66349b6937a3b3 = $(`<div id="html_10fd1a1f86633fb0ed66349b6937a3b3" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 49.46%<br>             Probability: 0.495<br>             Coordinates: 28.5735, 77.3272             </div>`)[0];
+                popup_fc0acd58f5224b912fdfcafe59b9216a.setContent(html_10fd1a1f86633fb0ed66349b6937a3b3);
+            
+        
+
+        circle_marker_7f6279a4be23a094d8390e104ff7c690.bindPopup(popup_fc0acd58f5224b912fdfcafe59b9216a)
+        ;
+
+        
+    
+    
+            var circle_marker_67b8f08ad0bd4f2ee2dc2c96341a0336 = L.circleMarker(
+                [28.59458892175685, 77.30584450904739],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7079663111378315, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_b93053db107da672c6d0af48e9663f5c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_66c5b20374a9ae250b95e6a03f277acc = $(`<div id="html_66c5b20374a9ae250b95e6a03f277acc" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 70.80%<br>             Probability: 0.292<br>             Coordinates: 28.5946, 77.3058             </div>`)[0];
+                popup_b93053db107da672c6d0af48e9663f5c.setContent(html_66c5b20374a9ae250b95e6a03f277acc);
+            
+        
+
+        circle_marker_67b8f08ad0bd4f2ee2dc2c96341a0336.bindPopup(popup_b93053db107da672c6d0af48e9663f5c)
+        ;
+
+        
+    
+    
+            var circle_marker_73f7c4561682de75ebfbbf8bb02b9e15 = L.circleMarker(
+                [28.577809081809125, 77.3236000030067],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.4194259972839777, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_7797cc528d91cca24334f14777756778 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_56f04471670657e0d06be856227d5753 = $(`<div id="html_56f04471670657e0d06be856227d5753" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 41.94%<br>             Probability: 0.419<br>             Coordinates: 28.5778, 77.3236             </div>`)[0];
+                popup_7797cc528d91cca24334f14777756778.setContent(html_56f04471670657e0d06be856227d5753);
+            
+        
+
+        circle_marker_73f7c4561682de75ebfbbf8bb02b9e15.bindPopup(popup_7797cc528d91cca24334f14777756778)
+        ;
+
+        
+    
+    
+            var circle_marker_d5997cc62e55917db762d35697e8d96c = L.circleMarker(
+                [28.579461510121654, 77.36321767091353],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7363205876219017, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_66baecc5b9e9f883bebccabd868f3c9a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ce53189552862fc279905411515583a5 = $(`<div id="html_ce53189552862fc279905411515583a5" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 73.63%<br>             Probability: 0.264<br>             Coordinates: 28.5795, 77.3632             </div>`)[0];
+                popup_66baecc5b9e9f883bebccabd868f3c9a.setContent(html_ce53189552862fc279905411515583a5);
+            
+        
+
+        circle_marker_d5997cc62e55917db762d35697e8d96c.bindPopup(popup_66baecc5b9e9f883bebccabd868f3c9a)
+        ;
+
+        
+    
+    
+            var circle_marker_c16e14c3f9ea033a443ee0dd10a82212 = L.circleMarker(
+                [28.557094964236956, 77.37567403943572],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6717109775955322, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_c3050cb402dd5d5652340c91c59064bb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b2455d67c1244b5e3a0c630c58552d74 = $(`<div id="html_b2455d67c1244b5e3a0c630c58552d74" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 67.17%<br>             Probability: 0.672<br>             Coordinates: 28.5571, 77.3757             </div>`)[0];
+                popup_c3050cb402dd5d5652340c91c59064bb.setContent(html_b2455d67c1244b5e3a0c630c58552d74);
+            
+        
+
+        circle_marker_c16e14c3f9ea033a443ee0dd10a82212.bindPopup(popup_c3050cb402dd5d5652340c91c59064bb)
+        ;
+
+        
+    
+    
+            var circle_marker_03fc8870820a0e20953f003acd6b9627 = L.circleMarker(
+                [28.532680220928842, 77.37157481145053],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.3429295067067963, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_1effe914b428e984c0b31c8d17c9169f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89f3dc373e025bc3f1d784e42e9d0bca = $(`<div id="html_89f3dc373e025bc3f1d784e42e9d0bca" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 34.29%<br>             Probability: 0.343<br>             Coordinates: 28.5327, 77.3716             </div>`)[0];
+                popup_1effe914b428e984c0b31c8d17c9169f.setContent(html_89f3dc373e025bc3f1d784e42e9d0bca);
+            
+        
+
+        circle_marker_03fc8870820a0e20953f003acd6b9627.bindPopup(popup_1effe914b428e984c0b31c8d17c9169f)
+        ;
+
+        
+    
+    
+            var circle_marker_148409e3f04de9a43f6a796ccdf15c6f = L.circleMarker(
+                [28.528077967404975, 77.36974990626226],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7147678414475713, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_597d30b7196d318d922ec13141338a13 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_136c64ff0ad7b76c52a5ef18e1846820 = $(`<div id="html_136c64ff0ad7b76c52a5ef18e1846820" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 71.48%<br>             Probability: 0.285<br>             Coordinates: 28.5281, 77.3697             </div>`)[0];
+                popup_597d30b7196d318d922ec13141338a13.setContent(html_136c64ff0ad7b76c52a5ef18e1846820);
+            
+        
+
+        circle_marker_148409e3f04de9a43f6a796ccdf15c6f.bindPopup(popup_597d30b7196d318d922ec13141338a13)
+        ;
+
+        
+    
+    
+            var circle_marker_6ea217c4ff552b936c97273ab3b9389f = L.circleMarker(
+                [28.546982020931008, 77.38926096396072],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.41437046753514084, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_afc48fed47827447e05de3b19ff71c9f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc491de38b5148de5e80c81882878439 = $(`<div id="html_fc491de38b5148de5e80c81882878439" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 41.44%<br>             Probability: 0.414<br>             Coordinates: 28.5470, 77.3893             </div>`)[0];
+                popup_afc48fed47827447e05de3b19ff71c9f.setContent(html_fc491de38b5148de5e80c81882878439);
+            
+        
+
+        circle_marker_6ea217c4ff552b936c97273ab3b9389f.bindPopup(popup_afc48fed47827447e05de3b19ff71c9f)
+        ;
+
+        
+    
+    
+            var circle_marker_08365c018c78b8f7886904cbc7299be4 = L.circleMarker(
+                [28.510852317892, 77.38665213791089],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7340954152805506, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_f878f35b814e114bf623faaff2c2eec8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa3ab98ed049aa96e3df0517e16f64b3 = $(`<div id="html_fa3ab98ed049aa96e3df0517e16f64b3" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 73.41%<br>             Probability: 0.266<br>             Coordinates: 28.5109, 77.3867             </div>`)[0];
+                popup_f878f35b814e114bf623faaff2c2eec8.setContent(html_fa3ab98ed049aa96e3df0517e16f64b3);
+            
+        
+
+        circle_marker_08365c018c78b8f7886904cbc7299be4.bindPopup(popup_f878f35b814e114bf623faaff2c2eec8)
+        ;
+
+        
+    
+    
+            var circle_marker_09f2bea252e1fb548e1b49a2f6201b80 = L.circleMarker(
+                [28.53859617829907, 77.38552049092536],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_465468abbc9102eef96514fe0538f1e2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_31cd7509d2130544c9fd8dbb95515de8 = $(`<div id="html_31cd7509d2130544c9fd8dbb95515de8" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 100.00%<br>             Probability: 0.000<br>             Coordinates: 28.5386, 77.3855             </div>`)[0];
+                popup_465468abbc9102eef96514fe0538f1e2.setContent(html_31cd7509d2130544c9fd8dbb95515de8);
+            
+        
+
+        circle_marker_09f2bea252e1fb548e1b49a2f6201b80.bindPopup(popup_465468abbc9102eef96514fe0538f1e2)
+        ;
+
+        
+    
+    
+            var circle_marker_cb52d85840e3768f579e21b9ec4462f5 = L.circleMarker(
+                [28.518322083549567, 77.31805794027332],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.9415355684687181, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_d317fce1dc2e3fe55f866a3166f7e20d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6d8e558a7fe46776f325e8b1afbc7b2e = $(`<div id="html_6d8e558a7fe46776f325e8b1afbc7b2e" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 94.15%<br>             Probability: 0.058<br>             Coordinates: 28.5183, 77.3181             </div>`)[0];
+                popup_d317fce1dc2e3fe55f866a3166f7e20d.setContent(html_6d8e558a7fe46776f325e8b1afbc7b2e);
+            
+        
+
+        circle_marker_cb52d85840e3768f579e21b9ec4462f5.bindPopup(popup_d317fce1dc2e3fe55f866a3166f7e20d)
+        ;
+
+        
+    
+    
+            var circle_marker_454d878cdc2e400938d2302d80847482 = L.circleMarker(
+                [28.51072062846713, 77.31401917224342],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.9116208508134869, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_efe2565557d84261aa9b6aa162c1b6c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2db73c746a11fcb9ec9b1497255715a5 = $(`<div id="html_2db73c746a11fcb9ec9b1497255715a5" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 91.16%<br>             Probability: 0.088<br>             Coordinates: 28.5107, 77.3140             </div>`)[0];
+                popup_efe2565557d84261aa9b6aa162c1b6c9.setContent(html_2db73c746a11fcb9ec9b1497255715a5);
+            
+        
+
+        circle_marker_454d878cdc2e400938d2302d80847482.bindPopup(popup_efe2565557d84261aa9b6aa162c1b6c9)
+        ;
+
+        
+    
+    
+            var circle_marker_fd18fef99476a964d64c156b658ef3c6 = L.circleMarker(
+                [28.586695597515725, 77.34056837522967],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8080891982654634, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_488a5b322a3db683d091c7e10e974af8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79d0e087d98d744d9eadbf7f61e111f2 = $(`<div id="html_79d0e087d98d744d9eadbf7f61e111f2" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 80.81%<br>             Probability: 0.192<br>             Coordinates: 28.5867, 77.3406             </div>`)[0];
+                popup_488a5b322a3db683d091c7e10e974af8.setContent(html_79d0e087d98d744d9eadbf7f61e111f2);
+            
+        
+
+        circle_marker_fd18fef99476a964d64c156b658ef3c6.bindPopup(popup_488a5b322a3db683d091c7e10e974af8)
+        ;
+
+        
+    
+    
+            var circle_marker_0861e03bb4ccc7568b2eee782379b0e5 = L.circleMarker(
+                [28.506347713616222, 77.37565372913626],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7149672246596407, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_abcadc75a442104397d7927936d28506 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_afd8b011c45e3f5df8fe89be6b119e12 = $(`<div id="html_afd8b011c45e3f5df8fe89be6b119e12" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 71.50%<br>             Probability: 0.285<br>             Coordinates: 28.5063, 77.3757             </div>`)[0];
+                popup_abcadc75a442104397d7927936d28506.setContent(html_afd8b011c45e3f5df8fe89be6b119e12);
+            
+        
+
+        circle_marker_0861e03bb4ccc7568b2eee782379b0e5.bindPopup(popup_abcadc75a442104397d7927936d28506)
+        ;
+
+        
+    
+    
+            var circle_marker_2eda332049b8195aa42c0a270da429e2 = L.circleMarker(
+                [28.539899573026208, 77.30495534296301],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7467805816640248, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_a6f8964784476d7b3594f35ceee5379d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_887d3683c0bd30e470087997ff5dc25e = $(`<div id="html_887d3683c0bd30e470087997ff5dc25e" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 74.68%<br>             Probability: 0.253<br>             Coordinates: 28.5399, 77.3050             </div>`)[0];
+                popup_a6f8964784476d7b3594f35ceee5379d.setContent(html_887d3683c0bd30e470087997ff5dc25e);
+            
+        
+
+        circle_marker_2eda332049b8195aa42c0a270da429e2.bindPopup(popup_a6f8964784476d7b3594f35ceee5379d)
+        ;
+
+        
+    
+    
+            var circle_marker_33fc5fbe90e05d7586b6b8ea51e7fab3 = L.circleMarker(
+                [28.532268148967404, 77.35877955475866],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.35809143527137355, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_3a7f173bf3a112fb72e9427f6ca6d014 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0e129980d22613572018d68284772c3f = $(`<div id="html_0e129980d22613572018d68284772c3f" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 35.81%<br>             Probability: 0.358<br>             Coordinates: 28.5323, 77.3588             </div>`)[0];
+                popup_3a7f173bf3a112fb72e9427f6ca6d014.setContent(html_0e129980d22613572018d68284772c3f);
+            
+        
+
+        circle_marker_33fc5fbe90e05d7586b6b8ea51e7fab3.bindPopup(popup_3a7f173bf3a112fb72e9427f6ca6d014)
+        ;
+
+        
+    
+    
+            var circle_marker_e9dfa4e7cde3e878e4c9564888a4ad4e = L.circleMarker(
+                [28.53070023859393, 77.3552275653302],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6045287432724414, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_1f6f0ad07b4e0985f39f3284334d68b8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_570755ec6fccafff6ab061bdcdf353e6 = $(`<div id="html_570755ec6fccafff6ab061bdcdf353e6" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 60.45%<br>             Probability: 0.605<br>             Coordinates: 28.5307, 77.3552             </div>`)[0];
+                popup_1f6f0ad07b4e0985f39f3284334d68b8.setContent(html_570755ec6fccafff6ab061bdcdf353e6);
+            
+        
+
+        circle_marker_e9dfa4e7cde3e878e4c9564888a4ad4e.bindPopup(popup_1f6f0ad07b4e0985f39f3284334d68b8)
+        ;
+
+        
+    
+    
+            var circle_marker_5717f9e38d38b9fcec035e1b9dd3d423 = L.circleMarker(
+                [28.590308595768075, 77.39800615579829],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_237c03c3fba511ba02be71dfc6329c07 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f70d6c773f23c463f515c57941179c4c = $(`<div id="html_f70d6c773f23c463f515c57941179c4c" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 100.00%<br>             Probability: 0.000<br>             Coordinates: 28.5903, 77.3980             </div>`)[0];
+                popup_237c03c3fba511ba02be71dfc6329c07.setContent(html_f70d6c773f23c463f515c57941179c4c);
+            
+        
+
+        circle_marker_5717f9e38d38b9fcec035e1b9dd3d423.bindPopup(popup_237c03c3fba511ba02be71dfc6329c07)
+        ;
+
+        
+    
+    
+            var circle_marker_b00a085b3fd23053812b163b2b38003c = L.circleMarker(
+                [28.549565298176784, 77.36670332419239],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5094821839688868, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_bd6208978241669778ea7b049be9dde7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_834668b87f4ccac6580c899df5af1b56 = $(`<div id="html_834668b87f4ccac6580c899df5af1b56" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 50.95%<br>             Probability: 0.509<br>             Coordinates: 28.5496, 77.3667             </div>`)[0];
+                popup_bd6208978241669778ea7b049be9dde7.setContent(html_834668b87f4ccac6580c899df5af1b56);
+            
+        
+
+        circle_marker_b00a085b3fd23053812b163b2b38003c.bindPopup(popup_bd6208978241669778ea7b049be9dde7)
+        ;
+
+        
+    
+    
+            var circle_marker_57145d751b373d812edb5e5b60871fa5 = L.circleMarker(
+                [28.58868969600603, 77.3863955947226],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.36536199676325115, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_16fc51d4f849e2e6701394da616d0d56 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_78b066acc73822a3a3c155f48c9167df = $(`<div id="html_78b066acc73822a3a3c155f48c9167df" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 36.54%<br>             Probability: 0.365<br>             Coordinates: 28.5887, 77.3864             </div>`)[0];
+                popup_16fc51d4f849e2e6701394da616d0d56.setContent(html_78b066acc73822a3a3c155f48c9167df);
+            
+        
+
+        circle_marker_57145d751b373d812edb5e5b60871fa5.bindPopup(popup_16fc51d4f849e2e6701394da616d0d56)
+        ;
+
+        
+    
+    
+            var circle_marker_216fa13f43d2f420f396b18005fba5a3 = L.circleMarker(
+                [28.567330247777814, 77.30373860055523],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_8c0f12e591b3a17f6dd660cd18be9335 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fe62a4414efa4f3e0e0b26079866016a = $(`<div id="html_fe62a4414efa4f3e0e0b26079866016a" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 100.00%<br>             Probability: 0.000<br>             Coordinates: 28.5673, 77.3037             </div>`)[0];
+                popup_8c0f12e591b3a17f6dd660cd18be9335.setContent(html_fe62a4414efa4f3e0e0b26079866016a);
+            
+        
+
+        circle_marker_216fa13f43d2f420f396b18005fba5a3.bindPopup(popup_8c0f12e591b3a17f6dd660cd18be9335)
+        ;
+
+        
+    
+    
+            var circle_marker_81714160db1598b70f5dbd37d9756e48 = L.circleMarker(
+                [28.597864008656103, 77.35840232642455],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6136386782519078, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_1309f1dfea4b2854af23e960fa22c8e0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a847ebbef324dd3e1fd91b00e18d5dc = $(`<div id="html_1a847ebbef324dd3e1fd91b00e18d5dc" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 61.36%<br>             Probability: 0.614<br>             Coordinates: 28.5979, 77.3584             </div>`)[0];
+                popup_1309f1dfea4b2854af23e960fa22c8e0.setContent(html_1a847ebbef324dd3e1fd91b00e18d5dc);
+            
+        
+
+        circle_marker_81714160db1598b70f5dbd37d9756e48.bindPopup(popup_1309f1dfea4b2854af23e960fa22c8e0)
+        ;
+
+        
+    
+    
+            var circle_marker_647dc4820870690df8acb5076fef0c82 = L.circleMarker(
+                [28.558404190528247, 77.30271879701291],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.787846116735343, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_abded4d11e45f51b673dbc408229e8c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79eb6e23a6e8e87f0ed0913e8dc932d5 = $(`<div id="html_79eb6e23a6e8e87f0ed0913e8dc932d5" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 78.78%<br>             Probability: 0.212<br>             Coordinates: 28.5584, 77.3027             </div>`)[0];
+                popup_abded4d11e45f51b673dbc408229e8c1.setContent(html_79eb6e23a6e8e87f0ed0913e8dc932d5);
+            
+        
+
+        circle_marker_647dc4820870690df8acb5076fef0c82.bindPopup(popup_abded4d11e45f51b673dbc408229e8c1)
+        ;
+
+        
+    
+    
+            var circle_marker_f6208057849b36009e51fd55628530e5 = L.circleMarker(
+                [28.544074250694973, 77.3560945672611],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6526010066103298, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_c99164e067268196bed53933b9a64e1f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_75d7da09ec6a938c155507461b7e540b = $(`<div id="html_75d7da09ec6a938c155507461b7e540b" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 65.26%<br>             Probability: 0.653<br>             Coordinates: 28.5441, 77.3561             </div>`)[0];
+                popup_c99164e067268196bed53933b9a64e1f.setContent(html_75d7da09ec6a938c155507461b7e540b);
+            
+        
+
+        circle_marker_f6208057849b36009e51fd55628530e5.bindPopup(popup_c99164e067268196bed53933b9a64e1f)
+        ;
+
+        
+    
+    
+            var circle_marker_e6d537e0f025bc06fcd008d9a17f3e89 = L.circleMarker(
+                [28.560322207241665, 77.34911723761343],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6247641827948024, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_18dde59366ef4d9461f46d1bc96a67eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6043ad7904c94d5d3db181b39e894cf = $(`<div id="html_c6043ad7904c94d5d3db181b39e894cf" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 62.48%<br>             Probability: 0.625<br>             Coordinates: 28.5603, 77.3491             </div>`)[0];
+                popup_18dde59366ef4d9461f46d1bc96a67eb.setContent(html_c6043ad7904c94d5d3db181b39e894cf);
+            
+        
+
+        circle_marker_e6d537e0f025bc06fcd008d9a17f3e89.bindPopup(popup_18dde59366ef4d9461f46d1bc96a67eb)
+        ;
+
+        
+    
+    
+            var circle_marker_822e9d95baa94c98a466f0d481cde71f = L.circleMarker(
+                [28.54707571259671, 77.39189942906043],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.9377910440549386, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_dc95b2c24405c23f4197532ab81ba230 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_475149324bc566e601e635e0cac1f88c = $(`<div id="html_475149324bc566e601e635e0cac1f88c" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 93.78%<br>             Probability: 0.062<br>             Coordinates: 28.5471, 77.3919             </div>`)[0];
+                popup_dc95b2c24405c23f4197532ab81ba230.setContent(html_475149324bc566e601e635e0cac1f88c);
+            
+        
+
+        circle_marker_822e9d95baa94c98a466f0d481cde71f.bindPopup(popup_dc95b2c24405c23f4197532ab81ba230)
+        ;
+
+        
+    
+    
+            var circle_marker_345f0fd8586efcd0527e3975976c0044 = L.circleMarker(
+                [28.529377807983252, 77.31888253467204],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7049569985699907, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_75a1d5e1266fc4700392e96914daa037 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_05df87a3237a737888ce4576b54057a8 = $(`<div id="html_05df87a3237a737888ce4576b54057a8" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 70.50%<br>             Probability: 0.295<br>             Coordinates: 28.5294, 77.3189             </div>`)[0];
+                popup_75a1d5e1266fc4700392e96914daa037.setContent(html_05df87a3237a737888ce4576b54057a8);
+            
+        
+
+        circle_marker_345f0fd8586efcd0527e3975976c0044.bindPopup(popup_75a1d5e1266fc4700392e96914daa037)
+        ;
+
+        
+    
+    
+            var circle_marker_538c23e161277331071e72217c9d5304 = L.circleMarker(
+                [28.55844978093674, 77.36487913621045],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5108179527622383, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_ec24b11fdb9c60e5245f0957e43111cc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_35ed11b1f834797d9ab4c6f02e7be7f5 = $(`<div id="html_35ed11b1f834797d9ab4c6f02e7be7f5" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 51.08%<br>             Probability: 0.511<br>             Coordinates: 28.5584, 77.3649             </div>`)[0];
+                popup_ec24b11fdb9c60e5245f0957e43111cc.setContent(html_35ed11b1f834797d9ab4c6f02e7be7f5);
+            
+        
+
+        circle_marker_538c23e161277331071e72217c9d5304.bindPopup(popup_ec24b11fdb9c60e5245f0957e43111cc)
+        ;
+
+        
+    
+    
+            var circle_marker_7c005a2842b42d1ac088a0b610f3b41b = L.circleMarker(
+                [28.59780812485357, 77.35085425342656],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.751222482470203, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_dd7ec650deb1b412d62f15de0028f86d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_94b54625b7eab7782488574fe2b40436 = $(`<div id="html_94b54625b7eab7782488574fe2b40436" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 75.12%<br>             Probability: 0.751<br>             Coordinates: 28.5978, 77.3509             </div>`)[0];
+                popup_dd7ec650deb1b412d62f15de0028f86d.setContent(html_94b54625b7eab7782488574fe2b40436);
+            
+        
+
+        circle_marker_7c005a2842b42d1ac088a0b610f3b41b.bindPopup(popup_dd7ec650deb1b412d62f15de0028f86d)
+        ;
+
+        
+    
+    
+            var circle_marker_914653ab66ee8f968851005f9bfe4e41 = L.circleMarker(
+                [28.558265126950726, 77.34981543351417],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8462091944485483, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_838cd9e6bb688a6e85b96e979ef943f4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf52a8fe1d7456f8c5f8285adbec5ea5 = $(`<div id="html_cf52a8fe1d7456f8c5f8285adbec5ea5" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 84.62%<br>             Probability: 0.846<br>             Coordinates: 28.5583, 77.3498             </div>`)[0];
+                popup_838cd9e6bb688a6e85b96e979ef943f4.setContent(html_cf52a8fe1d7456f8c5f8285adbec5ea5);
+            
+        
+
+        circle_marker_914653ab66ee8f968851005f9bfe4e41.bindPopup(popup_838cd9e6bb688a6e85b96e979ef943f4)
+        ;
+
+        
+    
+    
+            var circle_marker_156b86ea0fbcd56be3ae6bff6a5994e8 = L.circleMarker(
+                [28.58429061640753, 77.33410275292208],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.3937541489682, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_c0b057eb4f2ae528cc059404c92b9196 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9dfd926f626114db9ea5980df5f2f968 = $(`<div id="html_9dfd926f626114db9ea5980df5f2f968" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 39.38%<br>             Probability: 0.394<br>             Coordinates: 28.5843, 77.3341             </div>`)[0];
+                popup_c0b057eb4f2ae528cc059404c92b9196.setContent(html_9dfd926f626114db9ea5980df5f2f968);
+            
+        
+
+        circle_marker_156b86ea0fbcd56be3ae6bff6a5994e8.bindPopup(popup_c0b057eb4f2ae528cc059404c92b9196)
+        ;
+
+        
+    
+    
+            var circle_marker_199daa01a4ff941ca1b8f086c14596d7 = L.circleMarker(
+                [28.539959729031676, 77.31003291496363],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8195821189778092, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_96ee7406b1e70b28d267d4e6fafd2400 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86fd5a176a659c2a48fdc955d3214c12 = $(`<div id="html_86fd5a176a659c2a48fdc955d3214c12" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 81.96%<br>             Probability: 0.180<br>             Coordinates: 28.5400, 77.3100             </div>`)[0];
+                popup_96ee7406b1e70b28d267d4e6fafd2400.setContent(html_86fd5a176a659c2a48fdc955d3214c12);
+            
+        
+
+        circle_marker_199daa01a4ff941ca1b8f086c14596d7.bindPopup(popup_96ee7406b1e70b28d267d4e6fafd2400)
+        ;
+
+        
+    
+    
+            var circle_marker_d8d417403ff60433152589d83e3574d7 = L.circleMarker(
+                [28.503200081272237, 77.33579090279434],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.46691086203129334, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_270fb83621f9c69c53127a922fe937dd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c1b62d9da5e24ad60ae8d0eba11ee2b3 = $(`<div id="html_c1b62d9da5e24ad60ae8d0eba11ee2b3" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 46.69%<br>             Probability: 0.467<br>             Coordinates: 28.5032, 77.3358             </div>`)[0];
+                popup_270fb83621f9c69c53127a922fe937dd.setContent(html_c1b62d9da5e24ad60ae8d0eba11ee2b3);
+            
+        
+
+        circle_marker_d8d417403ff60433152589d83e3574d7.bindPopup(popup_270fb83621f9c69c53127a922fe937dd)
+        ;
+
+        
+    
+    
+            var circle_marker_b76e20885de6c939dd7061d527eeca29 = L.circleMarker(
+                [28.503799198531237, 77.3092033815478],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.767847733151678, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_e9c196c1b3843043b5ed89ba54bf5bf0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c3de2ed400f75f57f22a64e42c79fc4 = $(`<div id="html_9c3de2ed400f75f57f22a64e42c79fc4" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: ✅ No Mining<br>             Confidence: 76.78%<br>             Probability: 0.232<br>             Coordinates: 28.5038, 77.3092             </div>`)[0];
+                popup_e9c196c1b3843043b5ed89ba54bf5bf0.setContent(html_9c3de2ed400f75f57f22a64e42c79fc4);
+            
+        
+
+        circle_marker_b76e20885de6c939dd7061d527eeca29.bindPopup(popup_e9c196c1b3843043b5ed89ba54bf5bf0)
+        ;
+
+        
+    
+    
+            var circle_marker_4b8d714f6ce88eb08e4d31133a4faef7 = L.circleMarker(
+                [28.523185135232822, 77.36180208643222],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.5020145370203828, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+        
+    
+        var popup_e5478f4a59124dac2b40f58f6f16a47d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6d1b04b076075700492d1fc8d2aa3bc1 = $(`<div id="html_6d1b04b076075700492d1fc8d2aa3bc1" style="width: 100.0%; height: 100.0%;">             <b>Mining Detection Result</b><br>             Status: 🚨 MINING DETECTED<br>             Confidence: 50.20%<br>             Probability: 0.502<br>             Coordinates: 28.5232, 77.3618             </div>`)[0];
+                popup_e5478f4a59124dac2b40f58f6f16a47d.setContent(html_6d1b04b076075700492d1fc8d2aa3bc1);
+            
+        
+
+        circle_marker_4b8d714f6ce88eb08e4d31133a4faef7.bindPopup(popup_e5478f4a59124dac2b40f58f6f16a47d)
+        ;
+
+        
+    
+    
+            var layer_control_1cd5f45ccd9d36c7098d22283fff33ef_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_52169f3bfe2f293ae3c02d698c812d15,
+                    "Google Satellite" : tile_layer_432f8d44374c8bb1bb67b0100a9bbd03,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_1cd5f45ccd9d36c7098d22283fff33ef = L.control.layers(
+                layer_control_1cd5f45ccd9d36c7098d22283fff33ef_layers.base_layers,
+                layer_control_1cd5f45ccd9d36c7098d22283fff33ef_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_619a0348aa7a65903b5af1bc71ad33c3);
+
+        
+</script>
+</html>
